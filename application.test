@@ -1,0 +1,54 @@
+# =============================
+# APPLICATION CONFIGURATION (TEST)
+# =============================
+spring.application.name=CurrencyConversionService
+server.port=0
+spring.profiles.active=test
+
+# =============================
+# EUREKA CLIENT CONFIGURATION (DISABLED FOR TEST)
+# =============================
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+# =============================
+# ADMIN SERVER CONFIGURATION (DISABLED FOR TEST)
+# =============================
+spring.boot.admin.client.enabled=false
+
+# =============================
+# ACTUATOR CONFIGURATION
+# =============================
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=always
+
+# =============================
+# LOGGING CONFIGURATION
+# =============================
+logging.level.root=WARN
+logging.level.com.microservices.conversion=DEBUG
+logging.level.org.springframework=INFO
+
+# =============================
+# DATABASE CONFIGURATION (IN-MEMORY)
+# =============================
+spring.datasource.url=jdbc:h2:mem:conversiondb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# =============================
+# WEBCLIENT / MOCK SERVICE CONFIG
+# =============================
+# Mock Exchange Service URL (for integration tests)
+currency.exchange.service.url=http://localhost:8200
+
+# =============================
+# TEST INFO
+# =============================
+info.app.name=Currency Conversion Service - TEST
+info.app.environment=test
+info.app.description=Test profile configuration for CurrencyConversionService
